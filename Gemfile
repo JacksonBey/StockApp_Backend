@@ -44,3 +44,5 @@ gem 'fast_jsonapi'
 
 gem 'rest-client'
 
+
+gem "jwt", "~> 2.2"
