@@ -5,6 +5,8 @@ class WatchListsController < ApplicationController
     end
 
     def create
+        # watchlist = WatchList.create(watchlist_params)
+        # render json: WatchListSerializer.new(watchlist)
     end
 
 end
