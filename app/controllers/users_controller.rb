@@ -4,11 +4,16 @@ class UsersController < ApplicationController
         render json: UserSerializer.new(user)
     end
 
+    def index
+        users = User.all 
+        render json: UserSerializer.new(users)
+    end
+
     def create
         user = User.create(user_params)
-        if user.save
+        if user
             login!
-            render json: UsersController.new(user)
+            render json: UserSerializer.new(user)
         else
             render json: {
                 status: 500,
