@@ -5,7 +5,16 @@ class UsersController < ApplicationController
     end
 
     def create
-        # @user = User.create(user_params)
+        user = User.create(user_params)
+        if user.save
+            login!
+            render json: UsersController.new(user)
+        else
+            render json: {
+                status: 500,
+                errors: user.errors.full_messages
+            }
+        end
     end
     
     def update
@@ -14,6 +23,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :username, :password_digest, :bio, :image)
+        params.require(:user).permit(:name, :username, :password, :password_confirmation, :bio, :image)
     end
 end
