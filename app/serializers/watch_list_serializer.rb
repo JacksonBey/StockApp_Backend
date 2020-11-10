@@ -1,4 +1,4 @@
 class WatchListSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title
+  attributes :title, :stock_id, :user_id
 end

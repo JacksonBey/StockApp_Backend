@@ -11,8 +11,17 @@ class WatchListsController < ApplicationController
     end
 
     def create
-        # watchlist = WatchList.create(watchlist_params)
-        # render json: WatchListSerializer.new(watchlist)
+        @watch_list = WatchList.create(watch_list_params)
+        if @watch_list.valid?
+            render json: WatchListSerializer.new(@watch_list), status: :created
+        else
+            render json: { error: 'failed to create watch list' }, status: :not_acceptable
+        end
     end
 
+    private
+
+    def watch_list_params
+        params.require(:watch_list).permit(:title, :user_id => current_user.id)
+    end
 end
