@@ -5,10 +5,7 @@ class StocksController < ApplicationController
     end
 
     def show
-        # stocks = Stock.all 
-        # render json: StockSerializer.new(stocks)
-    end
-
-    def create
+        stock = Stock.find(params[:id])
+        render json: StockSerializer.new(stock)
     end
 end
