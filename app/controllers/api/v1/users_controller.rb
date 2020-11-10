@@ -14,8 +14,22 @@ class Api::V1::UsersController < ApplicationController
         end
     end
 
+    def update
+        @user = User.find(params[:id])
+        @user.update(edit_params)
+        if @user.valid?
+            render json: { user: UserSerializer.new(@user), token: @token}
+        else
+            render json: { error: 'failed to edit user' }, status: :not_acceptable
+        end
+    end
+
     private
     def user_params
         params.require(:user).permit(:username, :password)
+    end
+
+    def edit_params
+        params.require(:user).permit(:name, :bio, :image)
     end
 end
