@@ -19,6 +19,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.update(edit_params)
         if @user.valid?
+            @token = encode_token({ user_id: @user.id })
             render json: { user: UserSerializer.new(@user), token: @token}
         else
             render json: { error: 'failed to edit user' }, status: :not_acceptable

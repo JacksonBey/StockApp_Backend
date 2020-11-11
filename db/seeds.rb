@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-WatchList.destroy_all
-Stock.destroy_all
+# WatchList.destroy_all
+# Stock.destroy_all
 User.destroy_all
 
 u1 = User.create(name: 'Jasper', username: 'jwreed', password: 'zKRy', bio: 'hello', image: 'yup.jpg')
@@ -16,11 +16,11 @@ u3 = User.create(name: 'Jimmy', username: 'ymmij', password: 'kRYz', bio: 'hello
 u4 = User.create(name: 'Josh', username: 'hsoj', password: 'rYZk', bio: 'hello', image: 'yup.jpg')
 u5 = User.create(name: 'Jake', username: 'ekaj', password: 'yZKr', bio: 'hello', image: 'yup.jpg')
 
-s1 = Stock.create(value: 123.45, company: 'apple', industry: 'tech', description: 'good')
-s2 = Stock.create(value: 23.45, company: 'microsoft', industry: 'tech', description: 'dfes')
-s3 = Stock.create(value: 13.45, company: 'tesla', industry: 'tech', description: 'gdf')
-s4 = Stock.create(value: 3.45, company: 'pear', industry: 'tech', description: 'eee')
-s5 = Stock.create(value: 1.45, company: 'lg', industry: 'tech', description: 'hrews')
+# s1 = Stock.create(value: 123.45, company: 'apple', industry: 'tech', description: 'good')
+# s2 = Stock.create(value: 23.45, company: 'microsoft', industry: 'tech', description: 'dfes')
+# s3 = Stock.create(value: 13.45, company: 'tesla', industry: 'tech', description: 'gdf')
+# s4 = Stock.create(value: 3.45, company: 'pear', industry: 'tech', description: 'eee')
+# s5 = Stock.create(value: 1.45, company: 'lg', industry: 'tech', description: 'hrews')
 
-wl1 = WatchList.create(title: 'Have', condition: true, user_id: User.first.id, stock_id: Stock.first.id)
-wl2 = WatchList.create(title: 'Want', condition: false, user_id: User.second.id, stock_id: Stock.second.id)
+# wl1 = WatchList.create(title: 'Have', condition: true, user_id: User.first.id, stock_id: Stock.first.id)
+# wl2 = WatchList.create(title: 'Want', condition: false, user_id: User.second.id, stock_id: Stock.second.id)
