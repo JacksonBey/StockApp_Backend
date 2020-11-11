@@ -4,7 +4,6 @@ class CreateWatchLists < ActiveRecord::Migration[6.0]
       t.string :title
       t.boolean :condition
       t.belongs_to :user, null: false, foreign_key: true
-      t.belongs_to :stock, null: false, foreign_key: true
 
       t.timestamps
     end

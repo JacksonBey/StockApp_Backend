@@ -1,4 +1,4 @@
 class Stock < ApplicationRecord
-    has_many :watch_lists
-    has_many :users, through: :watch_lists 
+    has_many :watch_list_stocks
+    has_many :watch_list, through: :watch_list_stocks 
 end
