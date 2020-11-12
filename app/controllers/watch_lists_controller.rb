@@ -22,6 +22,6 @@ class WatchListsController < ApplicationController
     private
 
     def watch_list_params
-        params.require(:watch_list).permit(:title, :user_id => current_user.id)
+        params.require(:watch_list).permit(:title, :user_id, :conditon => false)
     end
 end
