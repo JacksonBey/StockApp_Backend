@@ -1,5 +1,11 @@
 class WatchListStocksController < ApplicationController
 
+
+    def index
+        wls = WatchListStock.all 
+        render json: wls
+    end
+
     def create
         @watch_list_stock = WatchListStock.create(watch_list_stock_params)
         if @watch_list_stock.valid?
@@ -7,6 +13,12 @@ class WatchListStocksController < ApplicationController
         else
             render json: { error: 'failed to create watch list stock' }, status: :not_acceptable
         end
+    end
+
+    def destroy
+        @watch_list_stock = WatchListStock.find(params[:id])
+        @watch_list_stock.destroy
+        render json: {message: 'stock removed from watchlist'}
     end
 
     private
