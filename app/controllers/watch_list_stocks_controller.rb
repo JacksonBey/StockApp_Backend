@@ -9,6 +9,12 @@ class WatchListStocksController < ApplicationController
         end
     end
 
+    def destroy
+        @watch_list_stock = WatchListStock.find(params[:id])
+        @watch_list_stock.destroy
+        render json: {message: 'stock removed from watchlist'}
+    end
+
     private
 
     def watch_list_stock_params
