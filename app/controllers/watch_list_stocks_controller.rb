@@ -7,7 +7,7 @@ class WatchListStocksController < ApplicationController
     end
 
     def create
-        @watch_list_stock = WatchListStock.create(watch_list_stock_params)
+        @watch_list_stock = WatchListStock.find(params[:id])
         if @watch_list_stock.valid?
             render json: { message: 'created watch list stock' }, status: :created
         else
